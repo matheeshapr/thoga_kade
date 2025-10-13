@@ -1,149 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="643.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardPageController">
-    <children>
-        <VBox layoutX="40.0" layoutY="30.0" spacing="20.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
-            <children>
-                <HBox alignment="CENTER_LEFT" spacing="10.0">
-                    <children>
-                        <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Thoga Kade Dashboard" />
-                    </children>
-                </HBox>
-                <Label style="-fx-font-size: 16px; -fx-text-fill: #777;" text="Sunday, 12 October 2025" />
-
-                <GridPane hgap="30.0" prefHeight="435.0" prefWidth="868.0" vgap="30.0" VBox.vgrow="ALWAYS">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="215.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="242.0" minHeight="10.0" prefHeight="216.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="419.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12;">
-                            <children>
-                                <HBox alignment="CENTER" spacing="15.0">
-                                    <children>
-                                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="🛃 Customers" />
-                                    </children>
-                                </HBox>
-                                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #4A90E2;" text="1,428">
-                                    <font>
-                                        <Font name="System Bold" size="28.0" />
-                                    </font>
-                                </Label>
-                                <Label text="Total Active Customers" textFill="#888888" />
-                                <Button mnemonicParsing="false" onAction="#cusmanageaction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-cursor: hand;" text="Manage" />
-                            </children>
-                            <padding>
-                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                            </padding>
-                            <effect>
-                                <DropShadow blurType="GAUSSIAN" height="20" radius="9.5" width="20">
-                                    <color>
-                                        <Color opacity="0.1" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </VBox>
-
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12;" GridPane.columnIndex="1">
-                            <children>
-                                <HBox alignment="CENTER" spacing="15.0">
-                                    <children>
-                                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="🛍 Items" />
-                                    </children>
-                                </HBox>
-                                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #4A90E2;" text="8,940">
-                                    <font>
-                                        <Font name="System Bold" size="28.0" />
-                                    </font>
-                                </Label>
-                                <Label text="Total Products in Stock" textFill="#888888" />
-                                <Button mnemonicParsing="false" onAction="#itemmangeaction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-cursor: hand;" text="Manage" />
-                            </children>
-                            <padding>
-                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                            </padding>
-                            <effect>
-                                <DropShadow blurType="GAUSSIAN" height="20" radius="9.5" width="20">
-                                    <color>
-                                        <Color opacity="0.1" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </VBox>
-
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12;" GridPane.rowIndex="1">
-                            <children>
-                                <HBox alignment="CENTER" spacing="15.0">
-                                    <children>
-                                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="🚛 Suppliers" />
-                                    </children>
-                                </HBox>
-                                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #4A90E2;" text="76">
-                                    <font>
-                                        <Font name="System Bold" size="28.0" />
-                                    </font>
-                                </Label>
-                                <Label text="Registered Suppliers" textFill="#888888" />
-                                <Button mnemonicParsing="false" onAction="#supmanageaction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-cursor: hand;" text="Manage" />
-                            </children>
-                            <padding>
-                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                            </padding>
-                            <effect>
-                                <DropShadow blurType="GAUSSIAN" height="20" radius="9.5" width="20">
-                                    <color>
-                                        <Color opacity="0.1" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </VBox>
-
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                            <children>
-                                <HBox alignment="CENTER" spacing="15.0">
-                                    <children>
-                                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="👮‍♂️Employees" />
-                                    </children>
-                                </HBox>
-                                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #4A90E2;" text="112">
-                                    <font>
-                                        <Font name="System Bold" size="28.0" />
-                                    </font>
-                                </Label>
-                                <Label text="Staff Members" textFill="#888888" />
-                                <Button mnemonicParsing="false" onAction="#empmanageaction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-cursor: hand;" text="Manage" />
-                            </children>
-                            <padding>
-                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                            </padding>
-                            <effect>
-                                <DropShadow blurType="GAUSSIAN" height="20" radius="9.5" width="20">
-                                    <color>
-                                        <Color opacity="0.1" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </VBox>
-                    </children>
-                </GridPane>
-            </children>
-        </VBox>
-    </children>
+<AnchorPane prefHeight="613.0" prefWidth="885.0" style="-fx-background-color: #032B08;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardPageController">
+   <children>
+      <Pane layoutX="22.0" layoutY="25.0" prefHeight="556.0" prefWidth="139.0" style="-fx-background-color: #27F554; -fx-background-radius: 20;">
+         <children>
+            <Button layoutX="36.0" layoutY="33.0" mnemonicParsing="false" onAction="#dashaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🏠">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </Button>
+            <Button layoutX="36.0" layoutY="108.0" mnemonicParsing="false" onAction="#custaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🧍" />
+            <Button layoutX="36.0" layoutY="184.0" mnemonicParsing="false" onAction="#itemaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🛍" />
+            <Button layoutX="36.0" layoutY="253.0" mnemonicParsing="false" onAction="#suppaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🚛" />
+            <Button layoutX="36.0" layoutY="328.0" mnemonicParsing="false" onAction="#empaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="👮‍♂️" />
+            <Button layoutX="36.0" layoutY="500.0" mnemonicParsing="false" onAction="#logoutaction" prefHeight="42.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🚪➡" />
+         </children>
+      </Pane>
+      <Label layoutX="191.0" layoutY="63.0" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Pane layoutX="191.0" layoutY="125.0" prefHeight="107.0" prefWidth="668.0" style="-fx-background-color: #27F554; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="28.0" layoutY="20.0" text="Welcome to  Matheesha !" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="62.0" text="Have a nice day...." textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="191.0" layoutY="392.0" prefHeight="189.0" prefWidth="668.0" style="-fx-background-color: #1F5414; -fx-background-radius: 20;" />
+      <Pane layoutX="191.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+         <children>
+            <Label layoutX="23.0" layoutY="86.0" text="Updates">
+               <font>
+                  <Font name="Bodoni MT Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="326.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+         <children>
+            <Label layoutX="24.0" layoutY="86.0" text="Reports">
+               <font>
+                  <Font name="Bodoni MT Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="464.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+         <children>
+            <Label layoutX="36.0" layoutY="86.0" text="Help">
+               <font>
+                  <Font name="Bodoni MT Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="601.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+         <children>
+            <Label layoutX="32.0" layoutY="86.0" text="Guide">
+               <font>
+                  <Font name="Bodoni MT Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="740.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+         <children>
+            <Label layoutX="25.0" layoutY="86.0" text="Contact">
+               <font>
+                  <Font name="Bodoni MT Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="795.0" layoutY="51.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #EF9A1A; -fx-background-radius: 100; -fx-font-size: 19;" text="🚹">
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
+      </Button>
+   </children>
 </AnchorPane>
