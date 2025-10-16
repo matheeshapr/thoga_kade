@@ -13,11 +13,7 @@
    <children>
       <Pane layoutX="22.0" layoutY="25.0" prefHeight="556.0" prefWidth="139.0" style="-fx-background-color: #27F554; -fx-background-radius: 20;">
          <children>
-            <Button layoutX="36.0" layoutY="33.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0C1C09; -fx-background-radius: 40; -fx-font-size: 20;" text="🏠" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="CROSSHAIR" />
-               </cursor>
-            </Button>
+            <Button layoutX="36.0" layoutY="33.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0C1C09; -fx-background-radius: 40; -fx-font-size: 20;" text="🏠" textFill="WHITE" />
             <Button layoutX="36.0" layoutY="108.0" mnemonicParsing="false" onAction="#custaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🧍" />
             <Button layoutX="36.0" layoutY="184.0" mnemonicParsing="false" onAction="#itemaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🛍" />
             <Button layoutX="36.0" layoutY="253.0" mnemonicParsing="false" onAction="#suppaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🚛" />

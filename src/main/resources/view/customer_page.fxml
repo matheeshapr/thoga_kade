@@ -33,17 +33,17 @@
         </Label>
         <Pane layoutX="191.0" layoutY="110.0" prefHeight="591.0" prefWidth="848.0" style="-fx-background-color: #1F5414; -fx-background-radius: 20;">
          <children>
-            <TableView layoutX="21.0" layoutY="24.0" prefHeight="178.0" prefWidth="810.0" style="-fx-background-color: #EEFCE3;">
+            <TableView fx:id="custtable" layoutX="21.0" layoutY="24.0" prefHeight="178.0" prefWidth="810.0" style="-fx-background-color: #EEFCE3;">
               <columns>
-                <TableColumn prefWidth="53.0" text="ID" />
-                <TableColumn prefWidth="44.0" text="TITLE" />
-                  <TableColumn prefWidth="143.0" text="NAME" />
-                  <TableColumn prefWidth="96.0" text="D.O.B" />
-                  <TableColumn prefWidth="103.0" text="SALARY" />
-                  <TableColumn prefWidth="94.0" text="ADDRESS" />
-                  <TableColumn prefWidth="95.0" text="CITY" />
-                  <TableColumn prefWidth="100.0" text="PROVINCE" />
-                  <TableColumn prefWidth="81.0" text="POST.CODE" />
+                <TableColumn fx:id="custid" prefWidth="53.0" text="ID" />
+                <TableColumn fx:id="custtitle" prefWidth="44.0" text="TITLE" />
+                  <TableColumn fx:id="custname" prefWidth="143.0" text="NAME" />
+                  <TableColumn fx:id="custdob" prefWidth="96.0" text="D.O.B" />
+                  <TableColumn fx:id="custsalary" prefWidth="103.0" text="SALARY" />
+                  <TableColumn fx:id="custaddress" prefWidth="94.0" text="ADDRESS" />
+                  <TableColumn fx:id="custcity" prefWidth="95.0" text="CITY" />
+                  <TableColumn fx:id="custprovince" prefWidth="100.0" text="PROVINCE" />
+                  <TableColumn fx:id="custpostcode" prefWidth="81.0" text="POST.CODE" />
               </columns>
             </TableView>
             <Button layoutX="90.0" layoutY="229.0" mnemonicParsing="false" onAction="#addaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #EC9141; -fx-background-radius: 20;" text="ADD">
