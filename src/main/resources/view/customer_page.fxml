@@ -2,9 +2,11 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -46,26 +48,35 @@
                   <TableColumn fx:id="custpostcode" prefWidth="81.0" text="POST.CODE" />
               </columns>
             </TableView>
-            <Button layoutX="90.0" layoutY="229.0" mnemonicParsing="false" onAction="#addaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #EC9141; -fx-background-radius: 20;" text="ADD">
+            <Button layoutX="90.0" layoutY="225.0" mnemonicParsing="false" onAction="#addaction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #EC9141; -fx-background-radius: 20;" text="ADD">
                <font>
                   <Font name="Bodoni MT Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="279.0" layoutY="229.0" mnemonicParsing="false" onAction="#viewaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #17E88D; -fx-background-radius: 20;" text="VIEW">
+            <Button layoutX="279.0" layoutY="225.0" mnemonicParsing="false" onAction="#viewaction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #17E88D; -fx-background-radius: 20;" text="VIEW">
                <font>
                   <Font name="Bodoni MT Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="457.0" layoutY="229.0" mnemonicParsing="false" onAction="#updateaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #E817C2; -fx-background-radius: 20;" text="UPDATE">
+            <Button layoutX="457.0" layoutY="225.0" mnemonicParsing="false" onAction="#updateaction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #E817C2; -fx-background-radius: 20;" text="UPDATE">
                <font>
                   <Font name="Bodoni MT Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="645.0" layoutY="229.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #E81717; -fx-background-radius: 20;" text="DELETE">
+            <Button layoutX="645.0" layoutY="225.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #E81717; -fx-background-radius: 20;" text="DELETE">
                <font>
                   <Font name="Bodoni MT Bold" size="15.0" />
                </font>
             </Button>
+            <TextField fx:id="txtid" layoutX="56.0" layoutY="308.0" prefHeight="25.0" prefWidth="207.0" promptText="ID" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+            <TextField fx:id="txttitle" layoutX="57.0" layoutY="362.0" prefHeight="25.0" prefWidth="67.0" promptText="Title" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+            <TextField fx:id="txtname" layoutX="160.0" layoutY="362.0" prefHeight="25.0" prefWidth="207.0" promptText="Name" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+            <DatePicker fx:id="txtdate" layoutX="56.0" layoutY="410.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+            <TextField fx:id="txtaddress" layoutX="56.0" layoutY="515.0" prefHeight="25.0" prefWidth="322.0" promptText="Address" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+            <TextField fx:id="txtcity" layoutX="410.0" layoutY="515.0" prefHeight="25.0" prefWidth="117.0" promptText="City" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+            <TextField fx:id="txtprovince" layoutX="549.0" layoutY="515.0" prefHeight="25.0" prefWidth="139.0" promptText="Province" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+            <TextField fx:id="txtpost" layoutX="709.0" layoutY="515.0" prefHeight="25.0" prefWidth="117.0" promptText="Postal Code" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+            <TextField fx:id="txtsalary" layoutX="56.0" layoutY="464.0" prefHeight="25.0" prefWidth="180.0" promptText="Salary" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
          </children></Pane>
         <Button layoutX="994.0" layoutY="53.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #EF9A1A; -fx-background-radius: 100; -fx-font-size: 19;" text="🚹">
             <cursor>
