@@ -117,7 +117,7 @@ public class ItemPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         itemcode.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("itemCode"));
-        itemdes.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("itemName"));
+        itemdes.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("itemDes"));
         itemcate.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("itemCate"));
         itemqty.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("itemQty"));
         itemunitp.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("itemPrice"));
@@ -132,5 +132,6 @@ public class ItemPageController implements Initializable {
                 txtunit.setText(String.valueOf(newValue.getItemPrice()));
             }
         });
+
     }
 }
