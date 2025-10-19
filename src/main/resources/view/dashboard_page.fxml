@@ -11,16 +11,6 @@
 
 <AnchorPane prefHeight="613.0" prefWidth="885.0" style="-fx-background-color: #032B08;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardPageController">
    <children>
-      <Pane layoutX="22.0" layoutY="25.0" prefHeight="556.0" prefWidth="139.0" style="-fx-background-color: #27F554; -fx-background-radius: 20;">
-         <children>
-            <Button layoutX="36.0" layoutY="33.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0C1C09; -fx-background-radius: 40; -fx-font-size: 20;" text="🏠" textFill="WHITE" />
-            <Button layoutX="36.0" layoutY="108.0" mnemonicParsing="false" onAction="#custaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🧍" />
-            <Button layoutX="36.0" layoutY="184.0" mnemonicParsing="false" onAction="#itemaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🛍" />
-            <Button layoutX="36.0" layoutY="253.0" mnemonicParsing="false" onAction="#suppaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🚛" />
-            <Button layoutX="36.0" layoutY="328.0" mnemonicParsing="false" onAction="#empaction" prefHeight="44.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="👮‍♂️" />
-            <Button layoutX="36.0" layoutY="500.0" mnemonicParsing="false" onAction="#logoutaction" prefHeight="42.0" prefWidth="67.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40; -fx-font-size: 20;" text="🚪➡" />
-         </children>
-      </Pane>
       <Label layoutX="191.0" layoutY="63.0" text="Dashboard" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold Italic" size="25.0" />
@@ -95,5 +85,38 @@
             <Cursor fx:constant="CROSSHAIR" />
          </cursor>
       </Button>
+      <Pane layoutX="23.0" layoutY="50.0" prefHeight="538.0" prefWidth="139.0" style="-fx-background-color: #27F554; -fx-background-radius: 20;">
+         <children>
+            <Button layoutX="11.0" layoutY="34.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0C1C09; -fx-background-radius: 40;" text="🏠 Dashboard" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="108.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🧍Customer">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="181.0" mnemonicParsing="false" onAction="#itemaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🛍 Item">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="253.0" mnemonicParsing="false" onAction="#suppaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🚛 Supplier">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="325.0" mnemonicParsing="false" onAction="#empaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="👮‍♂️ Employee">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="488.0" mnemonicParsing="false" onAction="#logoutaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🚪➡ Logout" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
