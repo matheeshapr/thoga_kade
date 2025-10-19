@@ -35,9 +35,7 @@ public class CustomerDTO {
         return custname;
     }
 
-    public String getCustdob() {
-        return custdob;
-    }
+    public String getCustdob() {return custdob;}
 
     public String getCustsalary() {
         return custsalary;
@@ -71,9 +69,7 @@ public class CustomerDTO {
         this.custname = custname;
     }
 
-    public void setCustdob(String custdob) {
-        this.custdob = custdob;
-    }
+    public void setCustdob(String custdob) {this.custdob = custdob; }
 
     public void setCustsalary(String custsalary) {
         this.custsalary = custsalary;

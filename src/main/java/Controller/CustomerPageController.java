@@ -18,13 +18,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class   CustomerPageController implements Initializable {
+public class CustomerPageController implements Initializable {
 
     ObservableList<CustomerDTO> customerinfoDTOS = FXCollections.observableArrayList(
-            new CustomerDTO("C001", "Mr", "Jhon Doe", "11/03/2003", "235153.00", "122/3, New York", "New York", "New York", "1234"),
-            new CustomerDTO("C002", "Ms", "Jane Smith", "12/04/2004", "253153.00", "456, Los Angeles", "Los Angeles", "Los Angeles", "5678"),
-            new CustomerDTO("C003", "Mrs", "Alice Johnson", "13/05/2005", "273153.00", "789, Chicago", "Chicago", "Chicago", "9101"),
-            new CustomerDTO("C004", "Dr", "Bob Brown", "14/06/2006", "293153.00", "321, Houston", "Houston", "Houston", "1121")
+            new CustomerDTO("C001", "Mr", "Jhon Doe", "2003-04-30", "235153.00", "122/3, New York", "New York", "New York", "1234"),
+            new CustomerDTO("C002", "Ms", "Jane Smith", "2004-05-23", "253153.00", "456, Los Angeles", "Los Angeles", "Los Angeles", "5678"),
+            new CustomerDTO("C003", "Mrs", "Alice Johnson", "2005-05-09", "273153.00", "789, Chicago", "Chicago", "Chicago", "9101"),
+            new CustomerDTO("C004", "Dr", "Bob Brown", "2006-07-22", "293153.00", "321, Houston", "Houston", "Houston", "1121")
     );
 
     @FXML
@@ -151,9 +151,49 @@ public class   CustomerPageController implements Initializable {
     }
 
     public void updateaction(ActionEvent actionEvent) {
+        CustomerDTO selectedCustomer = custtable.getSelectionModel().getSelectedItem();
+        if (selectedCustomer != null) {
+            selectedCustomer.setCustid(txtid.getText());
+            selectedCustomer.setCusttitle(txttitle.getText());
+            selectedCustomer.setCustname(txtname.getText());
+            selectedCustomer.setCustdob(txtdate.getValue().toString());
+            selectedCustomer.setCustsalary(txtsalary.getText());
+            selectedCustomer.setCustaddress(txtaddress.getText());
+            selectedCustomer.setCustcity(txtcity.getText());
+            selectedCustomer.setCustprovince(txtprovince.getText());
+            selectedCustomer.setCustpostalcode(txtpost.getText());
+            custtable.refresh();
+
+            txtid.setText("");
+            txttitle.setText("");
+            txtname.setText("");
+            txtdate.setValue(null);
+            txtsalary.setText("");
+            txtaddress.setText("");
+            txtcity.setText("");
+            txtprovince.setText("");
+            txtpost.setText("");
+
+        }
     }
 
     public void deleteaction(ActionEvent actionEvent) {
+        CustomerDTO selectedCustomer = custtable.getSelectionModel().getSelectedItem();
+        if (selectedCustomer != null) {
+            customerinfoDTOS.remove(selectedCustomer);
+            custtable.refresh();
+
+            txtid.setText("");
+            txttitle.setText("");
+            txtname.setText("");
+            txtdate.setValue(null);
+            txtsalary.setText("");
+            txtaddress.setText("");
+            txtcity.setText("");
+            txtprovince.setText("");
+            txtpost.setText("");
+
+        }
     }
 
     @Override
