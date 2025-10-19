@@ -86,7 +86,6 @@ public class CustomerPageController implements Initializable {
 
 
     Stage stage = new Stage();
-
     public void dashaction(ActionEvent actionEvent) {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard_page.fxml"))));

@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginPageController {
-    Stage stage = new Stage();
     public void loginonaction(ActionEvent actionEvent) {
+     Stage stage = new Stage();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard_page.fxml"))));
         } catch (IOException e) {
