@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.dto.CustomerDTO;
 import model.dto.ItemDTO;
 
 import java.io.IOException;
@@ -20,10 +21,10 @@ import java.util.ResourceBundle;
 public class ItemPageController implements Initializable {
 
     ObservableList<ItemDTO> iteminfoDTOS = FXCollections.observableArrayList(
-            new ItemDTO("I001", "Item A", "Education", 50+"", 25.50),
-            new ItemDTO("I002", "Item B", "Electronics", 30+"", 99.99),
-            new ItemDTO("I003", "Item C", "Groceries", 100+"", 5.75),
-            new ItemDTO("I004", "Item D", "Clothing", 20+"", 49.99)
+            new ItemDTO("I001", "Item A", "Education", 50 + "", 25.50),
+            new ItemDTO("I002", "Item B", "Electronics", 30 + "", 99.99),
+            new ItemDTO("I003", "Item C", "Groceries", 100 + "", 5.75),
+            new ItemDTO("I004", "Item D", "Clothing", 20 + "", 49.99)
 
     );
 
@@ -60,10 +61,6 @@ public class ItemPageController implements Initializable {
     @FXML
     private TextField txtunit;
 
-    @FXML
-    void addaction(ActionEvent event) {
-
-    }
 
     @FXML
     void custaction(ActionEvent event) {
@@ -71,6 +68,7 @@ public class ItemPageController implements Initializable {
     }
 
     Stage stage = new Stage();
+
     @FXML
     void dashaction(ActionEvent event) {
 
@@ -83,10 +81,6 @@ public class ItemPageController implements Initializable {
 
     }
 
-    @FXML
-    void deleteaction(ActionEvent event) {
-
-    }
 
     @FXML
     void empaction(ActionEvent event) {
@@ -104,13 +98,70 @@ public class ItemPageController implements Initializable {
     }
 
     @FXML
-    void updateaction(ActionEvent event) {
+    void addaction(ActionEvent event) {
+        String code = txtcode.getText();
+        String des = txtdes.getText();
+        String cate = txtdes.getText();
+        String qty = txtqty.getText();
+        Double price = Double.valueOf(txtunit.getText());
+
+        ItemDTO itemDTO = new ItemDTO(code,des,cate,qty,price);
+        iteminfoDTOS.add(itemDTO);
+        itemtable.refresh();
+
+        txtcode.setText("");
+        txtdes.setText("");
+        txtcate.setText("");
+        txtqty.setText("");
+        txtunit.setText("");
+    }
+
+    @FXML
+    void deleteaction(ActionEvent event) {
+        ItemDTO selectedItem = itemtable.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            iteminfoDTOS.remove(selectedItem);
+            itemtable.refresh();
+
+            txtcode.setText("");
+            txtdes.setText("");
+            txtcate.setText("");
+            txtqty.setText("");
+            txtunit.setText("");
+        }
 
     }
 
     @FXML
-    void viewaction(ActionEvent event) {
+    void updateaction(ActionEvent event) {
+        ItemDTO selectedItem = itemtable.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            selectedItem.setItemCode(txtcode.getText());
+            selectedItem.setItemDes(txtdes.getText());
+            selectedItem.setItemCate(txtcate.getText());
+            selectedItem.setItemQty(txtqty.getText());
+            selectedItem.setItemPrice(Double.valueOf(txtunit.getText()));
+            itemtable.refresh();
 
+            txtcode.setText("");
+            txtdes.setText("");
+            txtcate.setText("");
+            txtqty.setText("");
+            txtunit.setText("");
+        }
+    }
+
+    @FXML
+    void viewaction(ActionEvent event) {
+        ItemDTO selectedItem = itemtable.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            txtcode.setText(selectedItem.getItemCode());
+            txtdes.setText(selectedItem.getItemDes());
+            txtcate.setText(selectedItem.getItemCate());
+            txtqty.setText(selectedItem.getItemQty());
+            txtunit.setText(String.valueOf(selectedItem.getItemPrice()));
+
+        }
 
     }
 
