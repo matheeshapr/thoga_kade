@@ -31,7 +31,14 @@ public class DashboardPageController {
         stage1.show();
     }
 
+    Stage stage2 = new Stage();
     public void suppaction(ActionEvent actionEvent) {
+        try {
+            stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplyier_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage2.show();
     }
 
     public void empaction(ActionEvent actionEvent) {
