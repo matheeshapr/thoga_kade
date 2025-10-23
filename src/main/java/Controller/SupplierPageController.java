@@ -1,8 +1,12 @@
 package Controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 
-public class SupplierPageController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SupplierPageController implements Initializable {
     public void dashaction(ActionEvent actionEvent) {
     }
 
@@ -28,5 +32,11 @@ public class SupplierPageController {
     }
 
     public void deleteaction(ActionEvent actionEvent) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

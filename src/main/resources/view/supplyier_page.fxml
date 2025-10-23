@@ -50,15 +50,15 @@
             <children>
                 <TableView fx:id="custtable" layoutX="21.0" layoutY="24.0" prefHeight="178.0" prefWidth="810.0" style="-fx-background-color: #EEFCE3;">
                     <columns>
-                        <TableColumn fx:id="custid" prefWidth="53.0" text="ID" />
-                        <TableColumn fx:id="custtitle" prefWidth="93.0" text="NAME" />
-                        <TableColumn fx:id="custname" prefWidth="94.0" text="COMP.NAME" />
-                        <TableColumn fx:id="custdob" prefWidth="96.0" text="ADDRESS" />
-                        <TableColumn fx:id="custsalary" prefWidth="103.0" text="CITY" />
-                        <TableColumn fx:id="custaddress" prefWidth="94.0" text="PROVINCE" />
-                        <TableColumn fx:id="custcity" prefWidth="95.0" text="POST.CODE" />
-                        <TableColumn fx:id="custprovince" prefWidth="100.0" text="PHONE" />
-                        <TableColumn fx:id="custpostcode" prefWidth="81.0" text="EMAIL" />
+                        <TableColumn fx:id="supid" prefWidth="53.0" text="ID" />
+                        <TableColumn fx:id="supname" prefWidth="93.0" text="NAME" />
+                        <TableColumn fx:id="supcomname" prefWidth="94.0" text="COMP.NAME" />
+                        <TableColumn fx:id="supaddress" prefWidth="96.0" text="ADDRESS" />
+                        <TableColumn fx:id="supcity" prefWidth="103.0" text="CITY" />
+                        <TableColumn fx:id="supprvince" prefWidth="94.0" text="PROVINCE" />
+                        <TableColumn fx:id="suppostcode" prefWidth="95.0" text="POST.CODE" />
+                        <TableColumn fx:id="supphno" prefWidth="100.0" text="PHONE" />
+                        <TableColumn fx:id="supemail" prefWidth="81.0" text="EMAIL" />
                     </columns>
                 </TableView>
                 <Button layoutX="90.0" layoutY="225.0" mnemonicParsing="false" onAction="#addaction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #EC9141; -fx-background-radius: 20;" text="ADD">
