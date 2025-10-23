@@ -24,72 +24,72 @@ public class SuppliyDTO {
         this.email = email;
     }
 
-    public String getId() {
+    public String getSupid() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
+    public String getSupname() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getComname() {
         return comname;
     }
 
-    public void setComname(String comname) {
-        this.comname = comname;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getProvince() {
         return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
     }
 
     public String getPostcode() {
         return postcode;
     }
 
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
     public String getPhno() {
         return phno;
     }
 
-    public void setPhno(String phno) {
-        this.phno = phno;
-    }
-
     public String getEmail() {
         return email;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setComname(String comname) {
+        this.comname = comname;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public void setPhno(String phno) {
+        this.phno = phno;
     }
 
     public void setEmail(String email) {
