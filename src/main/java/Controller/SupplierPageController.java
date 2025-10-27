@@ -152,13 +152,13 @@ public class SupplierPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         supid.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("supid"));
         supname.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("supname"));
-        supcomname.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("supcomname"));
-        supaddress.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("supaddress"));
-        supcity.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("supcity"));
-        supprvince.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("supprvince"));
-        suppostcode.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("suppostcode"));
-        supphno.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("supphno"));
-        supemail.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("supemail"));
+        supcomname.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("comname"));
+        supaddress.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("address"));
+        supcity.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("city"));
+        supprvince.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("province"));
+        suppostcode.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("postcode"));
+        supphno.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("phno"));
+        supemail.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("email"));
         suptable.setItems(suppliyDTOS);
 
         suptable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
