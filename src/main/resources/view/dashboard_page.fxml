@@ -96,7 +96,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="108.0" mnemonicParsing="false" onAction="#custaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🤵‍♂️Customer">
+                <Button layoutX="11.0" layoutY="108.0" mnemonicParsing="false" onAction="#custaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🙎‍♂️ Customer">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
