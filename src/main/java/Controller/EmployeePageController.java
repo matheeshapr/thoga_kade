@@ -4,12 +4,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.dto.EmployeeDTO;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -116,13 +120,27 @@ public class EmployeePageController implements Initializable {
 
     }
 
+    Stage stage = new Stage();
     @FXML
     void custaction(ActionEvent event) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
 
     }
 
+    Stage stage1 = new Stage();
     @FXML
     void dashaction(ActionEvent event) {
+        try {
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
 
     }
 
@@ -145,18 +163,39 @@ public class EmployeePageController implements Initializable {
         }
     }
 
+    Stage stage2 = new Stage();
     @FXML
     void itemaction(ActionEvent event) {
+        try {
+            stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/item_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage2.show();
 
     }
 
+    Stage stage3 = new Stage();
     @FXML
     void logoutaction(ActionEvent event) {
+        try {
+            stage3.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/login_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage3.show();
 
     }
 
+    Stage stage4 = new Stage();
     @FXML
     void supaction(ActionEvent event) {
+        try {
+            stage4.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplyier_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage4.show();
 
     }
 

@@ -62,8 +62,16 @@ public class ItemPageController implements Initializable {
     private TextField txtunit;
 
 
+    Stage stage3 = new Stage();
+
     @FXML
     void custaction(ActionEvent event) {
+        try {
+            stage3.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage3.show();
 
     }
 
@@ -82,8 +90,16 @@ public class ItemPageController implements Initializable {
     }
 
 
+    Stage stage1 = new Stage();
+
     @FXML
     void empaction(ActionEvent event) {
+        try {
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
 
     }
 
@@ -92,8 +108,16 @@ public class ItemPageController implements Initializable {
 
     }
 
+    Stage stage2 = new Stage();
+
     @FXML
     void suppaction(ActionEvent event) {
+        try {
+            stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplyier_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage2.show();
 
     }
 
@@ -105,7 +129,7 @@ public class ItemPageController implements Initializable {
         String qty = txtqty.getText();
         Double price = Double.valueOf(txtunit.getText());
 
-        ItemDTO itemDTO = new ItemDTO(code,des,cate,qty,price);
+        ItemDTO itemDTO = new ItemDTO(code, des, cate, qty, price);
         iteminfoDTOS.add(itemDTO);
         itemtable.refresh();
 

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.dto.SuppliyDTO;
 
 import java.net.URL;
@@ -104,17 +105,32 @@ public class SupplierPageController implements Initializable {
         txtpost.setText("");
         txtsalary.setText("");
         txttitle.setText("");
-
-
     }
+
+
+    Stage stage = new Stage();
 
     @FXML
     void custaction(ActionEvent event) {
+        try {
+            stage.setScene(new javafx.scene.Scene(javafx.fxml.FXMLLoader.load(getClass().getResource("/view/customer_page.fxml"))));
+        } catch (java.io.IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
 
     }
 
+    Stage stage1 = new Stage();
+
     @FXML
     void dashaction(ActionEvent event) {
+        try {
+            stage1.setScene(new javafx.scene.Scene(javafx.fxml.FXMLLoader.load(getClass().getResource("/view/dashboard_page.fxml"))));
+        } catch (java.io.IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
 
     }
 
@@ -138,13 +154,29 @@ public class SupplierPageController implements Initializable {
 
     }
 
+    Stage stage2 = new Stage();
+
     @FXML
     void empaction(ActionEvent event) {
+        try {
+            stage2.setScene(new javafx.scene.Scene(javafx.fxml.FXMLLoader.load(getClass().getResource("/view/employee_page.fxml"))));
+        } catch (java.io.IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage2.show();
 
     }
 
+    Stage stage3 = new Stage();
+
     @FXML
     void itemaction(ActionEvent event) {
+        try {
+            stage3.setScene(new javafx.scene.Scene(javafx.fxml.FXMLLoader.load(getClass().getResource("/view/item_page.fxml"))));
+        } catch (java.io.IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage3.show();
 
     }
 

@@ -53,5 +53,6 @@ public class DashboardPageController {
     }
 
     public void logoutaction(ActionEvent actionEvent) {
+
     }
 }
