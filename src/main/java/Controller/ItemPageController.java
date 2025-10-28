@@ -16,17 +16,12 @@ import model.dto.ItemDTO;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class ItemPageController implements Initializable {
 
-    ObservableList<ItemDTO> iteminfoDTOS = FXCollections.observableArrayList(
-            new ItemDTO("I001", "Item A", "Education", 50 + "", 25.50),
-            new ItemDTO("I002", "Item B", "Electronics", 30 + "", 99.99),
-            new ItemDTO("I003", "Item C", "Groceries", 100 + "", 5.75),
-            new ItemDTO("I004", "Item D", "Clothing", 20 + "", 49.99)
-
-    );
+    ObservableList<ItemDTO> iteminfoDTOS = FXCollections.observableArrayList();
 
     @FXML
     private TableColumn<?, ?> itemcate;
@@ -129,15 +124,22 @@ public class ItemPageController implements Initializable {
         String qty = txtqty.getText();
         Double price = Double.valueOf(txtunit.getText());
 
-        ItemDTO itemDTO = new ItemDTO(code, des, cate, qty, price);
-        iteminfoDTOS.add(itemDTO);
-        itemtable.refresh();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("INSERT INTO Item VALUES (?, ?, ?, ?, ?)");
 
-        txtcode.setText("");
-        txtdes.setText("");
-        txtcate.setText("");
-        txtqty.setText("");
-        txtunit.setText("");
+            pstm.setString(1, code);
+            pstm.setString(2, des);
+            pstm.setString(3, cate);
+            pstm.setString(4, qty);
+
+            pstm.execute();
+            loadItem();
+
+        } catch (SQLException e) {
+         throw new RuntimeException(e);
+        }
+
     }
 
     @FXML
@@ -197,6 +199,7 @@ public class ItemPageController implements Initializable {
         itemqty.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("itemQty"));
         itemunitp.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("itemPrice"));
         itemtable.setItems(iteminfoDTOS);
+        loadItem();
 
         itemtable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -207,6 +210,32 @@ public class ItemPageController implements Initializable {
                 txtunit.setText(String.valueOf(newValue.getItemPrice()));
             }
         });
+
+    }
+
+    private void loadItem() {
+        iteminfoDTOS.clear();
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Item");
+            ResultSet resultSet = pstm.executeQuery();
+
+            while (resultSet.next()) {
+                ItemDTO items = new ItemDTO(
+                        resultSet.getString("ItemCode"),
+                        resultSet.getString("Description"),
+                        resultSet.getString("Category"),
+                        resultSet.getString("QtyOnHand"),
+                        resultSet.getDouble("UnitPrice")
+                );
+                iteminfoDTOS.add(items);
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

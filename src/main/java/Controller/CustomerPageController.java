@@ -16,16 +16,12 @@ import model.dto.CustomerDTO;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class CustomerPageController implements Initializable {
 
-    ObservableList<CustomerDTO> customerinfoDTOS = FXCollections.observableArrayList(
-            new CustomerDTO("C001", "Mr", "Jhon Doe", "2003-04-30", "235153.00", "122/3, New York", "New York", "New York", "1234"),
-            new CustomerDTO("C002", "Ms", "Jane Smith", "2004-05-23", "253153.00", "456, Los Angeles", "Los Angeles", "Los Angeles", "5678"),
-            new CustomerDTO("C003", "Mrs", "Alice Johnson", "2005-05-09", "273153.00", "789, Chicago", "Chicago", "Chicago", "9101"),
-            new CustomerDTO("C004", "Dr", "Bob Brown", "2006-07-22", "293153.00", "321, Houston", "Houston", "Houston", "1121")
-    );
+    ObservableList<CustomerDTO> customerinfoDTOS = FXCollections.observableArrayList();
 
     @FXML
     private TableColumn<?, ?> custaddress;
@@ -97,6 +93,7 @@ public class CustomerPageController implements Initializable {
     }
 
     Stage stage1 = new Stage();
+
     public void itemaction(ActionEvent actionEvent) {
         try {
             stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/item_page.fxml"))));
@@ -107,6 +104,7 @@ public class CustomerPageController implements Initializable {
     }
 
     Stage stage2 = new Stage();
+
     public void suppaction(ActionEvent actionEvent) {
         try {
             stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplyier_page.fxml"))));
@@ -117,6 +115,7 @@ public class CustomerPageController implements Initializable {
     }
 
     Stage stage3 = new Stage();
+
     public void empaction(ActionEvent actionEvent) {
         try {
             stage3.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_page.fxml"))));
@@ -141,81 +140,63 @@ public class CustomerPageController implements Initializable {
         String province = txtprovince.getText();
         String postcode = txtpost.getText();
 
-        CustomerDTO customerDTO = new CustomerDTO(id, title, name, dob, String.valueOf(salary), address, city, province, postcode);
-        customerinfoDTOS.add(customerDTO);
-        custtable.refresh();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            String SQL = "INSERT INTO Customer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-        txtid.setText("");
-        txttitle.setText("");
-        txtname.setText("");
-        txtdate.setValue(null);
-        txtsalary.setText("");
-        txtaddress.setText("");
-        txtcity.setText("");
-        txtprovince.setText("");
-        txtpost.setText("");
-    }
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, title);
+            preparedStatement.setString(3, name);
+            preparedStatement.setString(4, dob);
+            preparedStatement.setDouble(5, salary);
+            preparedStatement.setString(6, address);
+            preparedStatement.setString(7, city);
+            preparedStatement.setString(8, province);
+            preparedStatement.setString(9, postcode);
 
-    public void viewaction(ActionEvent actionEvent) {
-        CustomerDTO selectedCustomer = custtable.getSelectionModel().getSelectedItem();
-        if (selectedCustomer != null) {
-            txtid.setText(selectedCustomer.getCustid());
-            txttitle.setText(selectedCustomer.getCusttitle());
-            txtname.setText(selectedCustomer.getCustname());
-            txtdate.setValue(java.time.LocalDate.parse(selectedCustomer.getCustdob()));
-            txtsalary.setText(String.valueOf(selectedCustomer.getCustsalary()));
-            txtaddress.setText(selectedCustomer.getCustaddress());
-            txtcity.setText(selectedCustomer.getCustcity());
-            txtprovince.setText(selectedCustomer.getCustprovince());
-            txtpost.setText(selectedCustomer.getCustpostalcode());
+            preparedStatement.execute();
+            loadCustomer();
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
     public void updateaction(ActionEvent actionEvent) {
-        CustomerDTO selectedCustomer = custtable.getSelectionModel().getSelectedItem();
-        if (selectedCustomer != null) {
-            selectedCustomer.setCustid(txtid.getText());
-            selectedCustomer.setCusttitle(txttitle.getText());
-            selectedCustomer.setCustname(txtname.getText());
-            selectedCustomer.setCustdob(txtdate.getValue().toString());
-            selectedCustomer.setCustsalary(txtsalary.getText());
-            selectedCustomer.setCustaddress(txtaddress.getText());
-            selectedCustomer.setCustcity(txtcity.getText());
-            selectedCustomer.setCustprovince(txtprovince.getText());
-            selectedCustomer.setCustpostalcode(txtpost.getText());
-            custtable.refresh();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("UPDATE Customer SET Title = ?, Name = ?, DateOfBirth = ?, Salary = ?, Address = ?, City = ?, Province = ?, PostalCode = ? WHERE CustomerID = ?");
+            pstm.setString(1, txttitle.getText());
+            pstm.setString(2, txtname.getText());
+            pstm.setString(3, txtdate.getValue().toString());
+            pstm.setDouble(4, Double.parseDouble(txtsalary.getText()));
+            pstm.setString(5, txtaddress.getText());
+            pstm.setString(6, txtcity.getText());
+            pstm.setString(7, txtprovince.getText());
+            pstm.setString(8, txtpost.getText());
+            pstm.setString(9, txtid.getText());
+            pstm.executeUpdate();
+            loadCustomer();
 
-            txtid.setText("");
-            txttitle.setText("");
-            txtname.setText("");
-            txtdate.setValue(null);
-            txtsalary.setText("");
-            txtaddress.setText("");
-            txtcity.setText("");
-            txtprovince.setText("");
-            txtpost.setText("");
-
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
+
     }
 
     public void deleteaction(ActionEvent actionEvent) {
-        CustomerDTO selectedCustomer = custtable.getSelectionModel().getSelectedItem();
-        if (selectedCustomer != null) {
-            customerinfoDTOS.remove(selectedCustomer);
-            custtable.refresh();
-
-            txtid.setText("");
-            txttitle.setText("");
-            txtname.setText("");
-            txtdate.setValue(null);
-            txtsalary.setText("");
-            txtaddress.setText("");
-            txtcity.setText("");
-            txtprovince.setText("");
-            txtpost.setText("");
-
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("DELETE FROM Customer WHERE CustomerID = ?");
+            pstm.setString(1, txtid.getText());
+            pstm.executeUpdate();
+            loadCustomer();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
     }
 
     @Override
@@ -229,7 +210,9 @@ public class CustomerPageController implements Initializable {
         custcity.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("custcity"));
         custprovince.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("custprovince"));
         custpostcode.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("custpostcode"));
+
         custtable.setItems(customerinfoDTOS);
+        loadCustomer();
 
         custtable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -243,8 +226,35 @@ public class CustomerPageController implements Initializable {
                 txtprovince.setText(newValue.getCustprovince());
                 txtpost.setText(newValue.getCustpostalcode());
             }
-            ;
         });
+
+
+    }
+
+    private void loadCustomer() {
+        customerinfoDTOS.clear();
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Togakademanagement", "root", "1234");
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Customer");
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                CustomerDTO customer = new CustomerDTO(
+                        resultSet.getString("CustomerID"),
+                        resultSet.getString("Title"),
+                        resultSet.getString("Name"),
+                        resultSet.getString("DateOfBirth"),
+                        resultSet.getString("Salary"),
+                        resultSet.getString("Address"),
+                        resultSet.getString("City"),
+                        resultSet.getString("Province"),
+                        resultSet.getString("PostalCode")
+                );
+                customerinfoDTOS.add(customer);
+            }
+
+        } catch (SQLException e) {
+        }
 
     }
 }
