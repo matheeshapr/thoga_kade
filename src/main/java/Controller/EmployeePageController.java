@@ -88,6 +88,31 @@ public class EmployeePageController implements Initializable {
 
     @FXML
     void addaction(ActionEvent event) {
+        String id = txtid.getText();
+        String name = txtname.getText();
+        String nic = txtnic.getText();
+        String dob = txtdob.getText();
+        String position = txtpostion.getText();
+        String salary = txtsalary.getText();
+        String conno = txtconno.getText();
+        String address = txtaddress.getText();
+        String join = txtjoind.getText();
+        String status = txtstatus.getText();
+        EmployeeDTO newEmployee = new EmployeeDTO(id, name, nic, dob, position, salary, conno, address, join, status);
+        empDTOS.add(newEmployee);
+        emptable.refresh();
+
+        txtid.setText("");
+        txtname.setText("");
+        txtnic.setText("");
+        txtdob.setText("");
+        txtpostion.setText("");
+        txtsalary.setText("");
+        txtconno.setText("");
+        txtaddress.setText("");
+        txtjoind.setText("");
+        txtstatus.setText("");
+
 
     }
 
@@ -103,7 +128,21 @@ public class EmployeePageController implements Initializable {
 
     @FXML
     void deleteaction(ActionEvent event) {
-
+        EmployeeDTO selectedEmployee = emptable.getSelectionModel().getSelectedItem();
+        if (selectedEmployee != null) {
+            empDTOS.remove(selectedEmployee);
+            emptable.refresh();
+            txtid.setText("");
+            txtname.setText("");
+            txtnic.setText("");
+            txtdob.setText("");
+            txtpostion.setText("");
+            txtsalary.setText("");
+            txtconno.setText("");
+            txtaddress.setText("");
+            txtjoind.setText("");
+            txtstatus.setText("");
+        }
     }
 
     @FXML
@@ -123,11 +162,50 @@ public class EmployeePageController implements Initializable {
 
     @FXML
     void updateaction(ActionEvent event) {
+        EmployeeDTO selectedEmployee = emptable.getSelectionModel().getSelectedItem();
+        if (selectedEmployee != null) {
+            selectedEmployee.setId(txtid.getText());
+            selectedEmployee.setName(txtname.getText());
+            selectedEmployee.setNic(txtnic.getText());
+            selectedEmployee.setDob(txtdob.getText());
+            selectedEmployee.setPosition(txtpostion.getText());
+            selectedEmployee.setSalary(txtsalary.getText());
+            selectedEmployee.setConno(txtconno.getText());
+            selectedEmployee.setAddress(txtaddress.getText());
+            selectedEmployee.setJoin(txtjoind.getText());
+            selectedEmployee.setStatus(txtstatus.getText());
+            emptable.refresh();
+
+            txtid.setText("");
+            txtname.setText("");
+            txtnic.setText("");
+            txtdob.setText("");
+            txtpostion.setText("");
+            txtsalary.setText("");
+            txtconno.setText("");
+            txtaddress.setText("");
+            txtjoind.setText("");
+            txtstatus.setText("");
+        }
 
     }
 
     @FXML
     void viewaction(ActionEvent event) {
+        EmployeeDTO selectedEmployee = emptable.getSelectionModel().getSelectedItem();
+        if (selectedEmployee != null) {
+            txtid.setText(selectedEmployee.getId());
+            txtname.setText(selectedEmployee.getName());
+            txtnic.setText(selectedEmployee.getNic());
+            txtdob.setText(selectedEmployee.getDob());
+            txtpostion.setText(selectedEmployee.getPosition());
+            txtsalary.setText(selectedEmployee.getSalary());
+            txtconno.setText(selectedEmployee.getConno());
+            txtaddress.setText(selectedEmployee.getAddress());
+            txtjoind.setText(selectedEmployee.getJoin());
+            txtstatus.setText(selectedEmployee.getStatus());
+
+        }
 
     }
 

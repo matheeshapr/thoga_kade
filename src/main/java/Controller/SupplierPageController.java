@@ -120,6 +120,21 @@ public class SupplierPageController implements Initializable {
 
     @FXML
     void deleteaction(ActionEvent event) {
+        SuppliyDTO selectedSupplier = suptable.getSelectionModel().getSelectedItem();
+        if (selectedSupplier != null) {
+            suppliyDTOS.remove(selectedSupplier);
+            suptable.refresh();
+
+            txtid.setText("");
+            txtname.setText("");
+            txtname1.setText("");
+            txtaddress.setText("");
+            txtcity.setText("");
+            txtprovince.setText("");
+            txtpost.setText("");
+            txtsalary.setText("");
+            txttitle.setText("");
+        }
 
     }
 
@@ -140,11 +155,48 @@ public class SupplierPageController implements Initializable {
 
     @FXML
     void updateaction(ActionEvent event) {
+        SuppliyDTO selectedSupplier = suptable.getSelectionModel().getSelectedItem();
+        if (selectedSupplier != null) {
+            selectedSupplier.setId(txtid.getText());
+            selectedSupplier.setName(txtname.getText());
+            selectedSupplier.setComname(txtname1.getText());
+            selectedSupplier.setAddress(txtaddress.getText());
+            selectedSupplier.setCity(txtcity.getText());
+            selectedSupplier.setProvince(txtprovince.getText());
+            selectedSupplier.setPostcode(txtpost.getText());
+            selectedSupplier.setPhno(txtsalary.getText());
+            selectedSupplier.setEmail(txttitle.getText());
+            suptable.refresh();
+
+            txtid.setText("");
+            txtname.setText("");
+            txtname1.setText("");
+            txtaddress.setText("");
+            txtcity.setText("");
+            txtprovince.setText("");
+            txtpost.setText("");
+            txtsalary.setText("");
+            txttitle.setText("");
+
+        }
 
     }
 
     @FXML
     void viewaction(ActionEvent event) {
+        SuppliyDTO selectedSupplier = suptable.getSelectionModel().getSelectedItem();
+        if (selectedSupplier != null) {
+            txtid.setText(selectedSupplier.getSupid());
+            txtname.setText(selectedSupplier.getSupname());
+            txtname1.setText(selectedSupplier.getComname());
+            txtaddress.setText(selectedSupplier.getAddress());
+            txtcity.setText(selectedSupplier.getCity());
+            txtprovince.setText(selectedSupplier.getProvince());
+            txtpost.setText(selectedSupplier.getPostcode());
+            txtsalary.setText(selectedSupplier.getPhno());
+            txttitle.setText(selectedSupplier.getEmail());
+
+        }
 
     }
 
