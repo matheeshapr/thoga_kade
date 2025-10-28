@@ -144,52 +144,40 @@ public class ItemPageController implements Initializable {
 
     @FXML
     void deleteaction(ActionEvent event) {
-        ItemDTO selectedItem = itemtable.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            iteminfoDTOS.remove(selectedItem);
-            itemtable.refresh();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("DELETE FROM Item WHERE ItemCode = ?");
+            pstm.setString(1, txtcode.getText());
+            pstm.execute();
+            loadItem();
 
-            txtcode.setText("");
-            txtdes.setText("");
-            txtcate.setText("");
-            txtqty.setText("");
-            txtunit.setText("");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
 
     }
 
     @FXML
     void updateaction(ActionEvent event) {
-        ItemDTO selectedItem = itemtable.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            selectedItem.setItemCode(txtcode.getText());
-            selectedItem.setItemDes(txtdes.getText());
-            selectedItem.setItemCate(txtcate.getText());
-            selectedItem.setItemQty(txtqty.getText());
-            selectedItem.setItemPrice(Double.valueOf(txtunit.getText()));
-            itemtable.refresh();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("UPDATE Item SET Description = ?, Category = ?, QtyOnHand = ?, UnitPrice = ? WHERE ItemCode = ?");
 
-            txtcode.setText("");
-            txtdes.setText("");
-            txtcate.setText("");
-            txtqty.setText("");
-            txtunit.setText("");
+            pstm.setString(1, txtdes.getText());
+            pstm.setString(2, txtcate.getText());
+            pstm.setString(3, txtqty.getText());
+            pstm.setDouble(4, Double.valueOf(txtunit.getText()));
+            pstm.setString(5, txtcode.getText());
+
+            pstm.execute();
+            loadItem();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    @FXML
-    void viewaction(ActionEvent event) {
-        ItemDTO selectedItem = itemtable.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            txtcode.setText(selectedItem.getItemCode());
-            txtdes.setText(selectedItem.getItemDes());
-            txtcate.setText(selectedItem.getItemCate());
-            txtqty.setText(selectedItem.getItemQty());
-            txtunit.setText(String.valueOf(selectedItem.getItemPrice()));
-
-        }
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
