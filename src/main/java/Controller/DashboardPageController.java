@@ -42,7 +42,14 @@ public class DashboardPageController {
         stage2.show();
     }
 
+    Stage stage3 = new Stage();
     public void empaction(ActionEvent actionEvent) {
+        try {
+            stage3.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage3.show();
     }
 
     public void logoutaction(ActionEvent actionEvent) {

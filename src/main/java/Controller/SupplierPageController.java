@@ -162,8 +162,7 @@ public class SupplierPageController implements Initializable {
         suptable.setItems(suppliyDTOS);
 
         suptable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            SuppliyDTO selectedSupplier = suptable.getSelectionModel().getSelectedItem();
-            if (selectedSupplier != null) {
+            if (newValue != null) {
                 txtid.setText(newValue.getSupid());
                 txtname.setText(newValue.getSupname());
                 txtname1.setText(newValue.getComname());

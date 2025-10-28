@@ -9,145 +9,114 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="613.0" prefWidth="885.0" style="-fx-background-color: #032B08;"
-            xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Controller.DashboardPageController">
+<AnchorPane prefHeight="613.0" prefWidth="885.0" style="-fx-background-color: #032B08;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardPageController">
     <children>
         <Label layoutX="191.0" layoutY="63.0" text="Dashboard" textFill="WHITE">
             <font>
-                <Font name="Century Gothic Bold Italic" size="25.0"/>
+                <Font name="Century Gothic Bold Italic" size="25.0" />
             </font>
         </Label>
-        <Pane layoutX="191.0" layoutY="125.0" prefHeight="107.0" prefWidth="668.0"
-              style="-fx-background-color: #27F554; -fx-background-radius: 20;">
+        <Pane layoutX="191.0" layoutY="125.0" prefHeight="107.0" prefWidth="668.0" style="-fx-background-color: #27F554; -fx-background-radius: 20;">
             <children>
-                <Label layoutX="28.0" layoutY="20.0" text="Welcome to  Matheesha !" textFill="WHITE">
+                <Label layoutX="28.0" layoutY="20.0" text="Welcome to Matheesha !" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="25.0"/>
+                        <Font name="System Bold" size="25.0" />
                     </font>
                 </Label>
                 <Label layoutX="28.0" layoutY="62.0" text="Have a nice day...." textFill="WHITE">
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
             </children>
         </Pane>
-        <Pane layoutX="191.0" layoutY="392.0" prefHeight="189.0" prefWidth="668.0"
-              style="-fx-background-color: #1F5414; -fx-background-radius: 20;"/>
-        <Pane layoutX="191.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0"
-              style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+        <Pane layoutX="191.0" layoutY="392.0" prefHeight="189.0" prefWidth="668.0" style="-fx-background-color: #1F5414; -fx-background-radius: 20;" />
+        <Pane layoutX="191.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
             <children>
-                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../image/Gemini_Generated_Image_xvtaemxvtaemxvta-removebg-preview.png"/>
+                        <Image url="@../image/Gemini_Generated_Image_xvtaemxvtaemxvta-removebg-preview.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <Pane layoutX="326.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0"
-              style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+        <Pane layoutX="326.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
             <children>
-                <ImageView fitHeight="73.0" fitWidth="89.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true"
-                           preserveRatio="true"/>
-                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="73.0" fitWidth="89.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../image/Gemini_Generated_Image_f7wj9tf7wj9tf7wj__1_-removebg-preview.png"/>
+                        <Image url="@../image/Gemini_Generated_Image_f7wj9tf7wj9tf7wj__1_-removebg-preview.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <Pane layoutX="464.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0"
-              style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+        <Pane layoutX="464.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
             <children>
-                <ImageView fitHeight="73.0" fitWidth="89.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true"
-                           preserveRatio="true"/>
-                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="73.0" fitWidth="89.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../image/Gemini_Generated_Image_f7wj9tf7wj9tf7wj__2_-removebg-preview.png"/>
+                        <Image url="@../image/Gemini_Generated_Image_f7wj9tf7wj9tf7wj__2_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="565.0" layoutX="-465.0" layoutY="-252.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </Pane>
+        <Pane layoutX="601.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+            <children>
+                <ImageView fitHeight="73.0" fitWidth="89.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/Gemini_Generated_Image_f7wj9tf7wj9tf7wj__3_-removebg-preview.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <Pane layoutX="601.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0"
-              style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
+        <Pane layoutX="740.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
             <children>
-                <ImageView fitHeight="73.0" fitWidth="89.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true"
-                           preserveRatio="true"/>
-                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="73.0" fitWidth="89.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../image/Gemini_Generated_Image_f7wj9tf7wj9tf7wj__3_-removebg-preview.png"/>
+                        <Image url="@../image/Gemini_Generated_Image_f7wj9tf7wj9tf7wj__4_-removebg-preview.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <Pane layoutX="740.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0"
-              style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
-            <children>
-                <ImageView fitHeight="73.0" fitWidth="89.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true"
-                           preserveRatio="true"/>
-                <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../image/Gemini_Generated_Image_f7wj9tf7wj9tf7wj__4_-removebg-preview.png"/>
-                    </image>
-                </ImageView>
-            </children>
-        </Pane>
-        <Button layoutX="804.0" layoutY="57.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="45.0"
-                style="-fx-background-color: #EF9A1A; -fx-background-radius: 100; -fx-font-size: 19;" text="🚹">
+        <Button layoutX="804.0" layoutY="57.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #EF9A1A; -fx-background-radius: 100; -fx-font-size: 19;" text="🚹">
             <cursor>
-                <Cursor fx:constant="CROSSHAIR"/>
+                <Cursor fx:constant="CROSSHAIR" />
             </cursor>
         </Button>
-        <Pane layoutX="23.0" layoutY="50.0" prefHeight="538.0" prefWidth="139.0"
-              style="-fx-background-color: #27F554; -fx-background-radius: 20;">
+        <Pane layoutX="23.0" layoutY="50.0" prefHeight="538.0" prefWidth="139.0" style="-fx-background-color: #27F554; -fx-background-radius: 20;">
             <children>
-                <Button layoutX="11.0" layoutY="34.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="117.0"
-                        style="-fx-background-color: #0C1C09; -fx-background-radius: 40;" text="🏠 Dashboard"
-                        textFill="WHITE">
+                <Button layoutX="11.0" layoutY="34.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0C1C09; -fx-background-radius: 40;" text="🏠 Dashboard" textFill="WHITE">
                     <cursor>
-                        <Cursor fx:constant="CROSSHAIR"/>
+                        <Cursor fx:constant="CROSSHAIR" />
                     </cursor>
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="108.0" mnemonicParsing="false" onAction="#custaction" prefHeight="44.0"
-                        prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;"
-                        text="🤵‍♂️Customer">
+                <Button layoutX="11.0" layoutY="108.0" mnemonicParsing="false" onAction="#custaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🤵‍♂️Customer">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="181.0" mnemonicParsing="false" onAction="#itemaction" prefHeight="44.0"
-                        prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;"
-                        text="🛍 Item">
+                <Button layoutX="11.0" layoutY="181.0" mnemonicParsing="false" onAction="#itemaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🛍 Item">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="253.0" mnemonicParsing="false" onAction="#suppaction" prefHeight="44.0"
-                        prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;"
-                        text="🚛 Supplier">
+                <Button layoutX="11.0" layoutY="253.0" mnemonicParsing="false" onAction="#suppaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🚛 Supplier">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="325.0" mnemonicParsing="false" onAction="#empaction" prefHeight="44.0"
-                        prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;"
-                        text="👮‍♂️ Employee">
+                <Button layoutX="11.0" layoutY="325.0" mnemonicParsing="false" onAction="#empaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="👮‍♂️ Employee">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="488.0" mnemonicParsing="false" onAction="#logoutaction"
-                        prefHeight="44.0" prefWidth="117.0"
-                        style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🚪➡ Logout"/>
+                <Button layoutX="11.0" layoutY="488.0" mnemonicParsing="false" onAction="#logoutaction" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0ECF28; -fx-background-radius: 40;" text="🚪➡ Logout" />
             </children>
         </Pane>
     </children>
