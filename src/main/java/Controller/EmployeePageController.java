@@ -45,31 +45,31 @@ public class EmployeePageController {
     private TextField txtaddress;
 
     @FXML
-    private TextField txtcity;
+    private TextField txtconno;
+
+    @FXML
+    private TextField txtdob;
 
     @FXML
     private TextField txtid;
 
     @FXML
+    private TextField txtjoind;
+
+    @FXML
     private TextField txtname;
 
     @FXML
-    private TextField txtname1;
+    private TextField txtnic;
 
     @FXML
-    private TextField txtpost;
-
-    @FXML
-    private TextField txtprovince;
+    private TextField txtpostion;
 
     @FXML
     private TextField txtsalary;
 
     @FXML
-    private TextField txttitle;
-
-    @FXML
-    private TextField txttitle1;
+    private TextField txtstatus;
 
     @FXML
     void addaction(ActionEvent event) {
