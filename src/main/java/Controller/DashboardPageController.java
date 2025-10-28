@@ -15,7 +15,6 @@ public class DashboardPageController {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer_page.fxml"))));
         } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         stage.show();
     }

@@ -12,16 +12,12 @@ import javafx.stage.Stage;
 import model.dto.SuppliyDTO;
 
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class SupplierPageController implements Initializable {
 
-    ObservableList<SuppliyDTO> suppliyDTOS = FXCollections.observableArrayList(
-            new SuppliyDTO("S001", "Amara", "ABC Company", "101/A,Panadura", "Panadura", "Colombo", "20526", "0768789463", "amara@gmail.com"),
-            new SuppliyDTO("S002", "Nimal", "XYZ Corporation", "45/B, Galle Road", "Moratuwa", "Colombo", "10400", "0771234567", "nimal@yahoo.com"),
-            new SuppliyDTO("S003", "Kavya", "PQR Enterprises", "12, Main Street", "Dehiwala", "Colombo", "10350", "0762345678", "kavya@gmail.com"),
-            new SuppliyDTO("S004", "Sunil", "LMN Ltd", "78, High Level Road", "Nugegoda", "Colombo", "10250", "0713456789", "sunil@outlook.com")
-    );
+    ObservableList<SuppliyDTO> suppliyDTOS = FXCollections.observableArrayList();
 
     @FXML
     private TableView<SuppliyDTO> suptable;
@@ -80,34 +76,6 @@ public class SupplierPageController implements Initializable {
     @FXML
     private TextField txttitle;
 
-    @FXML
-    void addaction(ActionEvent event) {
-        String id = txtid.getText();
-        String name = txtname.getText();
-        String comname = txtname1.getText();
-        String address = txtaddress.getText();
-        String city = txtcity.getText();
-        String province = txtprovince.getText();
-        String postcode = txtpost.getText();
-        String phno = txtsalary.getText();
-        String email = txttitle.getText();
-
-        SuppliyDTO newSupplier = new SuppliyDTO(id, name, comname, address, city, province, postcode, phno, email);
-        suppliyDTOS.add(newSupplier);
-        suptable.refresh();
-
-        txtid.setText("");
-        txtname.setText("");
-        txtname1.setText("");
-        txtaddress.setText("");
-        txtcity.setText("");
-        txtprovince.setText("");
-        txtpost.setText("");
-        txtsalary.setText("");
-        txttitle.setText("");
-    }
-
-
     Stage stage = new Stage();
 
     @FXML
@@ -131,26 +99,6 @@ public class SupplierPageController implements Initializable {
             throw new RuntimeException(e);
         }
         stage1.show();
-
-    }
-
-    @FXML
-    void deleteaction(ActionEvent event) {
-        SuppliyDTO selectedSupplier = suptable.getSelectionModel().getSelectedItem();
-        if (selectedSupplier != null) {
-            suppliyDTOS.remove(selectedSupplier);
-            suptable.refresh();
-
-            txtid.setText("");
-            txtname.setText("");
-            txtname1.setText("");
-            txtaddress.setText("");
-            txtcity.setText("");
-            txtprovince.setText("");
-            txtpost.setText("");
-            txtsalary.setText("");
-            txttitle.setText("");
-        }
 
     }
 
@@ -186,48 +134,71 @@ public class SupplierPageController implements Initializable {
     }
 
     @FXML
-    void updateaction(ActionEvent event) {
-        SuppliyDTO selectedSupplier = suptable.getSelectionModel().getSelectedItem();
-        if (selectedSupplier != null) {
-            selectedSupplier.setId(txtid.getText());
-            selectedSupplier.setName(txtname.getText());
-            selectedSupplier.setComname(txtname1.getText());
-            selectedSupplier.setAddress(txtaddress.getText());
-            selectedSupplier.setCity(txtcity.getText());
-            selectedSupplier.setProvince(txtprovince.getText());
-            selectedSupplier.setPostcode(txtpost.getText());
-            selectedSupplier.setPhno(txtsalary.getText());
-            selectedSupplier.setEmail(txttitle.getText());
-            suptable.refresh();
+    void addaction(ActionEvent event) {
+        String id = txtid.getText();
+        String name = txtname.getText();
+        String comname = txtname1.getText();
+        String address = txtaddress.getText();
+        String city = txtcity.getText();
+        String province = txtprovince.getText();
+        String post = txtpost.getText();
+        String phno = txtsalary.getText();
+        String email = txttitle.getText();
 
-            txtid.setText("");
-            txtname.setText("");
-            txtname1.setText("");
-            txtaddress.setText("");
-            txtcity.setText("");
-            txtprovince.setText("");
-            txtpost.setText("");
-            txtsalary.setText("");
-            txttitle.setText("");
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("INSERT INTO Supplier VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            pstm.setString(1, id);
+            pstm.setString(2, name);
+            pstm.setString(3, comname);
+            pstm.setString(4, address);
+            pstm.setString(5, city);
+            pstm.setString(6, province);
+            pstm.setString(7, post);
+            pstm.setString(8, phno);
+            pstm.setString(9, email);
+            pstm.executeUpdate();
+            loadSupplier();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
+
+    }
+
+    @FXML
+    void deleteaction(ActionEvent event) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("DELETE FROM Supplier WHERE SupplierID = ?");
+            pstm.setString(1, txtid.getText());
+            pstm.executeUpdate();
+            loadSupplier();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
 
     @FXML
-    void viewaction(ActionEvent event) {
-        SuppliyDTO selectedSupplier = suptable.getSelectionModel().getSelectedItem();
-        if (selectedSupplier != null) {
-            txtid.setText(selectedSupplier.getSupid());
-            txtname.setText(selectedSupplier.getSupname());
-            txtname1.setText(selectedSupplier.getComname());
-            txtaddress.setText(selectedSupplier.getAddress());
-            txtcity.setText(selectedSupplier.getCity());
-            txtprovince.setText(selectedSupplier.getProvince());
-            txtpost.setText(selectedSupplier.getPostcode());
-            txtsalary.setText(selectedSupplier.getPhno());
-            txttitle.setText(selectedSupplier.getEmail());
-
+    void updateaction(ActionEvent event) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("UPDATE Supplier SET SupplierName = ?, CompanyName = ?, Address = ?, City = ?, Province = ?, PostalCode = ?, PhoneNumber = ?, Email = ? WHERE SupplierID = ?");
+            pstm.setString(1, txtname.getText());
+            pstm.setString(2, txtname1.getText());
+            pstm.setString(3, txtaddress.getText());
+            pstm.setString(4, txtcity.getText());
+            pstm.setString(5, txtprovince.getText());
+            pstm.setString(6, txtpost.getText());
+            pstm.setString(7, txtsalary.getText());
+            pstm.setString(8, txttitle.getText());
+            pstm.setString(9, txtid.getText());
+            pstm.executeUpdate();
+            loadSupplier();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -244,6 +215,7 @@ public class SupplierPageController implements Initializable {
         supphno.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("phno"));
         supemail.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("email"));
         suptable.setItems(suppliyDTOS);
+        loadSupplier();
 
         suptable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -259,5 +231,33 @@ public class SupplierPageController implements Initializable {
             }
         });
 
+    }
+
+    private void loadSupplier() {
+        suppliyDTOS.clear();
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Supplier");
+            ResultSet resultSet = pstm.executeQuery();
+
+            while (resultSet.next()) {
+                SuppliyDTO supplyer = new SuppliyDTO(
+                        resultSet.getString("SupplierID"),
+                        resultSet.getString("SupplierName"),
+                        resultSet.getString("CompanyName"),
+                        resultSet.getString("Address"),
+                        resultSet.getString("City"),
+                        resultSet.getString("Province"),
+                        resultSet.getString("PostalCode"),
+                        resultSet.getString("PhoneNumber"),
+                        resultSet.getString("Email")
+                );
+                suppliyDTOS.add(supplyer);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
