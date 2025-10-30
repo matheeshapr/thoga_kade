@@ -62,7 +62,7 @@
                         <Font name="Bodoni MT Bold" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="279.0" layoutY="225.0" mnemonicParsing="false" onAction="#viewaction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #17E88D; -fx-background-radius: 20;" text="VIEW">
+                <Button layoutX="279.0" layoutY="225.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #17E88D; -fx-background-radius: 20;" text="VIEW">
                     <font>
                         <Font name="Bodoni MT Bold" size="15.0" />
                     </font>
