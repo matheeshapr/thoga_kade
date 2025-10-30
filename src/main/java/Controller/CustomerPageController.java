@@ -142,8 +142,7 @@ public class CustomerPageController implements Initializable {
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
-            String SQL = "INSERT INTO Customer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Customer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             preparedStatement.setString(1, id);
             preparedStatement.setString(2, title);

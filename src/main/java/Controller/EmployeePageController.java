@@ -15,16 +15,12 @@ import model.dto.EmployeeDTO;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class EmployeePageController implements Initializable {
 
-    ObservableList<EmployeeDTO> empDTOS = FXCollections.observableArrayList(
-            new EmployeeDTO("E001", "Kamal Perera", "991234567V", "1999-05-14", "Manager", "85000", "0771234567", "Colombo", "2020-03-01", "Active"),
-            new EmployeeDTO("E002", "Saman Silva", "981234567V", "1995-08-22", "Cashier", "45000", "0769876543", "Badulla", "2019-07-15", "Active"),
-            new EmployeeDTO("E003", "Nimal Fernando", "971234567V", "1990-12-05", "Chef", "60000", "0758765432", "Kandy", "2018-11-20", "Inactive"),
-            new EmployeeDTO("E004", "Sunil Jayasuriya", "961234567V", "1985-03-30", "Waiter", "35000", "0747654321", "Negombo", "2021-01-10", "Active")
-    );
+    ObservableList<EmployeeDTO> empDTOS = FXCollections.observableArrayList();
 
 
     @FXML
@@ -90,37 +86,9 @@ public class EmployeePageController implements Initializable {
     @FXML
     private TextField txtstatus;
 
-    @FXML
-    void addaction(ActionEvent event) {
-        String id = txtid.getText();
-        String name = txtname.getText();
-        String nic = txtnic.getText();
-        String dob = txtdob.getText();
-        String position = txtpostion.getText();
-        String salary = txtsalary.getText();
-        String conno = txtconno.getText();
-        String address = txtaddress.getText();
-        String join = txtjoind.getText();
-        String status = txtstatus.getText();
-        EmployeeDTO newEmployee = new EmployeeDTO(id, name, nic, dob, position, salary, conno, address, join, status);
-        empDTOS.add(newEmployee);
-        emptable.refresh();
-
-        txtid.setText("");
-        txtname.setText("");
-        txtnic.setText("");
-        txtdob.setText("");
-        txtpostion.setText("");
-        txtsalary.setText("");
-        txtconno.setText("");
-        txtaddress.setText("");
-        txtjoind.setText("");
-        txtstatus.setText("");
-
-
-    }
 
     Stage stage = new Stage();
+
     @FXML
     void custaction(ActionEvent event) {
         try {
@@ -133,6 +101,7 @@ public class EmployeePageController implements Initializable {
     }
 
     Stage stage1 = new Stage();
+
     @FXML
     void dashaction(ActionEvent event) {
         try {
@@ -144,26 +113,8 @@ public class EmployeePageController implements Initializable {
 
     }
 
-    @FXML
-    void deleteaction(ActionEvent event) {
-        EmployeeDTO selectedEmployee = emptable.getSelectionModel().getSelectedItem();
-        if (selectedEmployee != null) {
-            empDTOS.remove(selectedEmployee);
-            emptable.refresh();
-            txtid.setText("");
-            txtname.setText("");
-            txtnic.setText("");
-            txtdob.setText("");
-            txtpostion.setText("");
-            txtsalary.setText("");
-            txtconno.setText("");
-            txtaddress.setText("");
-            txtjoind.setText("");
-            txtstatus.setText("");
-        }
-    }
-
     Stage stage2 = new Stage();
+
     @FXML
     void itemaction(ActionEvent event) {
         try {
@@ -176,6 +127,7 @@ public class EmployeePageController implements Initializable {
     }
 
     Stage stage3 = new Stage();
+
     @FXML
     void logoutaction(ActionEvent event) {
         try {
@@ -188,6 +140,7 @@ public class EmployeePageController implements Initializable {
     }
 
     Stage stage4 = new Stage();
+
     @FXML
     void supaction(ActionEvent event) {
         try {
@@ -200,51 +153,79 @@ public class EmployeePageController implements Initializable {
     }
 
     @FXML
-    void updateaction(ActionEvent event) {
-        EmployeeDTO selectedEmployee = emptable.getSelectionModel().getSelectedItem();
-        if (selectedEmployee != null) {
-            selectedEmployee.setId(txtid.getText());
-            selectedEmployee.setName(txtname.getText());
-            selectedEmployee.setNic(txtnic.getText());
-            selectedEmployee.setDob(txtdob.getText());
-            selectedEmployee.setPosition(txtpostion.getText());
-            selectedEmployee.setSalary(txtsalary.getText());
-            selectedEmployee.setConno(txtconno.getText());
-            selectedEmployee.setAddress(txtaddress.getText());
-            selectedEmployee.setJoin(txtjoind.getText());
-            selectedEmployee.setStatus(txtstatus.getText());
-            emptable.refresh();
+    void addaction(ActionEvent event) {
+        String id = txtid.getText();
+        String name = txtname.getText();
+        String nic = txtnic.getText();
+        String dob = txtdob.getText();
+        String position = txtpostion.getText();
+        String salary = txtsalary.getText();
+        String conno = txtconno.getText();
+        String address = txtaddress.getText();
+        String join = txtjoind.getText();
+        String status = txtstatus.getText();
 
-            txtid.setText("");
-            txtname.setText("");
-            txtnic.setText("");
-            txtdob.setText("");
-            txtpostion.setText("");
-            txtsalary.setText("");
-            txtconno.setText("");
-            txtaddress.setText("");
-            txtjoind.setText("");
-            txtstatus.setText("");
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Employee VALUES (?,?,?,?,?,?,?,?,?,?)");
+
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, nic);
+            preparedStatement.setString(4, dob);
+            preparedStatement.setString(5, position);
+            preparedStatement.setString(6, salary);
+            preparedStatement.setString(7, conno);
+            preparedStatement.setString(8, address);
+            preparedStatement.setString(9, join);
+            preparedStatement.setString(10, status);
+
+            preparedStatement.execute();
+            loadEmployee();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @FXML
+    void deleteaction(ActionEvent event) {
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Customer WHERE CustomerID = ?");
+            preparedStatement.setString(1, txtid.getText());
+            preparedStatement.execute();
+            loadEmployee();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
 
     @FXML
-    void viewaction(ActionEvent event) {
-        EmployeeDTO selectedEmployee = emptable.getSelectionModel().getSelectedItem();
-        if (selectedEmployee != null) {
-            txtid.setText(selectedEmployee.getId());
-            txtname.setText(selectedEmployee.getName());
-            txtnic.setText(selectedEmployee.getNic());
-            txtdob.setText(selectedEmployee.getDob());
-            txtpostion.setText(selectedEmployee.getPosition());
-            txtsalary.setText(selectedEmployee.getSalary());
-            txtconno.setText(selectedEmployee.getConno());
-            txtaddress.setText(selectedEmployee.getAddress());
-            txtjoind.setText(selectedEmployee.getJoin());
-            txtstatus.setText(selectedEmployee.getStatus());
+    void updateaction(ActionEvent event) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Customer SET Title = ?, Name = ?, DateOfBirth = ?, Salary = ?, Address = ?, City = ?, Province = ?, PostalCode = ? WHERE CustomerID = ?");
+                    preparedStatement.setString(1,txtid.getText());
+                    preparedStatement.setString(2,txtname.getText());
+                    preparedStatement.setString(3,txtnic.getText());
+                    preparedStatement.setString(4,txtdob.getText());
+                    preparedStatement.setString(5,txtpostion.getText());
+                    preparedStatement.setString(6,txtsalary.getText());
+                    preparedStatement.setString(7,txtconno.getText());
+                    preparedStatement.setString(8,txtjoind.getText());
+                    preparedStatement.setString(9,txtstatus.getText());
+                    preparedStatement.execute();
+                    loadEmployee();
 
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
 
     }
 
@@ -261,6 +242,7 @@ public class EmployeePageController implements Initializable {
         empjoin.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empjoin"));
         empstatus.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empstatus"));
         emptable.setItems(empDTOS);
+        loadEmployee();
 
         emptable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -276,5 +258,32 @@ public class EmployeePageController implements Initializable {
                 txtstatus.setText(newValue.getStatus());
             }
         });
+    }
+
+    public void loadEmployee() {
+        empDTOS.clear();
+
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Employee");
+                ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                EmployeeDTO employee = new EmployeeDTO(
+                        resultSet.getString("EmployeeID"),
+                        resultSet.getString("Name"),
+                        resultSet.getString("NIC"),
+                        resultSet.getString("DateOfBirth"),
+                        resultSet.getString("Position"),
+                        resultSet.getString("Salary"),
+                        resultSet.getString("ContactNumber"),
+                        resultSet.getString("Address"),
+                        resultSet.getString("JoinedDate"),
+                        resultSet.getString("Status")
+                );
+                empDTOS.add(employee);
+            }
+
+        } catch (SQLException e) {
+        }
     }
 }

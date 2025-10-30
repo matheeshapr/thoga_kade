@@ -244,13 +244,13 @@ public class SupplierPageController implements Initializable {
             while (resultSet.next()) {
                 SuppliyDTO supplyer = new SuppliyDTO(
                         resultSet.getString("SupplierID"),
-                        resultSet.getString("SupplierName"),
+                        resultSet.getString("Name"),
                         resultSet.getString("CompanyName"),
                         resultSet.getString("Address"),
                         resultSet.getString("City"),
                         resultSet.getString("Province"),
                         resultSet.getString("PostalCode"),
-                        resultSet.getString("PhoneNumber"),
+                        resultSet.getString("Phone"),
                         resultSet.getString("Email")
                 );
                 suppliyDTOS.add(supplyer);
