@@ -237,7 +237,7 @@ public class SupplierPageController implements Initializable {
         suppliyDTOS.clear();
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Togakademanagement", "root", "1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
             PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Supplier");
             ResultSet resultSet = pstm.executeQuery();
 

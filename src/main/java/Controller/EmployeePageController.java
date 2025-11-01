@@ -126,21 +126,10 @@ public class EmployeePageController implements Initializable {
 
     }
 
-    Stage stage3 = new Stage();
-
     @FXML
-    void logoutaction(ActionEvent event) {
-        try {
-            stage3.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/login_page.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage3.show();
-
-    }
+    void logoutaction(ActionEvent event) {}
 
     Stage stage4 = new Stage();
-
     @FXML
     void supaction(ActionEvent event) {
         try {
@@ -231,16 +220,17 @@ public class EmployeePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        empid.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empid"));
-        empname.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empname"));
-        empnic.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empnic"));
-        empdob.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empdob"));
-        empposi.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empposi"));
-        empsal.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empsal"));
-        empconno.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empconno"));
-        empaddress.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empaddress"));
-        empjoin.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empjoin"));
-        empstatus.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("empstatus"));
+        empid.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("id"));
+        empname.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("name"));
+        empnic.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("nic"));
+        empdob.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("dob"));
+        empposi.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("position"));
+        empsal.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("salary"));
+        empconno.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("conno"));
+        empaddress.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("address"));
+        empjoin.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("join"));
+        empstatus.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("status"));
+
         emptable.setItems(empDTOS);
         loadEmployee();
 
@@ -267,6 +257,7 @@ public class EmployeePageController implements Initializable {
                 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
                 PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Employee");
                 ResultSet resultSet = preparedStatement.executeQuery()) {
+
             while (resultSet.next()) {
                 EmployeeDTO employee = new EmployeeDTO(
                         resultSet.getString("EmployeeID"),
@@ -284,6 +275,8 @@ public class EmployeePageController implements Initializable {
             }
 
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+
         }
     }
 }
