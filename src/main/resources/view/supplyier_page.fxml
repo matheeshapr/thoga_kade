@@ -86,14 +86,14 @@
                     </font>
                 </Button>
                 <TextField fx:id="txtid" layoutX="56.0" layoutY="308.0" prefHeight="25.0" prefWidth="67.0" promptText="ID" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
-                <TextField fx:id="txttitle" layoutX="57.0" layoutY="362.0" prefHeight="25.0" prefWidth="207.0" promptText="Company Name" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+                <TextField fx:id="txtcomname" layoutX="57.0" layoutY="362.0" prefHeight="25.0" prefWidth="207.0" promptText="Company Name" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
                 <TextField fx:id="txtname" layoutX="146.0" layoutY="308.0" prefHeight="25.0" prefWidth="207.0" promptText="Name" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
-                <TextField fx:id="txtaddress" layoutX="56.0" layoutY="515.0" prefHeight="25.0" prefWidth="162.0" promptText="Province" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
-                <TextField fx:id="txtcity" layoutX="250.0" layoutY="515.0" prefHeight="25.0" prefWidth="162.0" promptText="Postal Code" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
-                <TextField fx:id="txtprovince" layoutX="435.0" layoutY="515.0" prefHeight="25.0" prefWidth="189.0" promptText="Phone" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
-                <TextField fx:id="txtpost" layoutX="653.0" layoutY="515.0" prefHeight="25.0" prefWidth="173.0" promptText="Email" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
-                <TextField fx:id="txtsalary" layoutX="56.0" layoutY="464.0" prefHeight="25.0" prefWidth="132.0" promptText="City" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
-                <TextField fx:id="txtname1" layoutX="56.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0" promptText="Address" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+                <TextField fx:id="txtprovince" layoutX="56.0" layoutY="515.0" prefHeight="25.0" prefWidth="162.0" promptText="Province" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+                <TextField fx:id="txtpost" layoutX="250.0" layoutY="515.0" prefHeight="25.0" prefWidth="162.0" promptText="Postal Code" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+                <TextField fx:id="txtphon" layoutX="435.0" layoutY="515.0" prefHeight="25.0" prefWidth="189.0" promptText="Phone" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+                <TextField fx:id="txtemail" layoutX="653.0" layoutY="515.0" prefHeight="25.0" prefWidth="173.0" promptText="Email" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+                <TextField fx:id="txtcity" layoutX="56.0" layoutY="464.0" prefHeight="25.0" prefWidth="132.0" promptText="City" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
+                <TextField fx:id="txtaddress" layoutX="56.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0" promptText="Address" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
             </children>
         </Pane>
         <Button layoutX="1235.0" layoutY="57.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #EF9A1A; -fx-background-radius: 100; -fx-font-size: 19;" text="🚹">
