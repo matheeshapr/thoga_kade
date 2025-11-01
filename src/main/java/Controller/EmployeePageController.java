@@ -194,7 +194,7 @@ public class EmployeePageController implements Initializable {
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Customer WHERE CustomerID = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Employee WHERE EmployeeID = ?");
             preparedStatement.setString(1, txtid.getText());
             preparedStatement.execute();
             loadEmployee();
@@ -208,7 +208,7 @@ public class EmployeePageController implements Initializable {
     void updateaction(ActionEvent event) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Customer SET Title = ?, Name = ?, DateOfBirth = ?, Salary = ?, Address = ?, City = ?, Province = ?, PostalCode = ? WHERE CustomerID = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Employee SET id = ?, Name = ?, nic = ?, dob = ?, position = ?, salary = ?, conno = ?, join = ?, status = ? WHERE EmployeeID = ?");
                     preparedStatement.setString(1,txtid.getText());
                     preparedStatement.setString(2,txtname.getText());
                     preparedStatement.setString(3,txtnic.getText());

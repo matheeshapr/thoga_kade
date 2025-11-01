@@ -56,13 +56,16 @@ public class SupplierPageController implements Initializable {
     private TextField txtcity;
 
     @FXML
+    private TextField txtcomname;
+
+    @FXML
+    private TextField txtemail;
+
+    @FXML
     private TextField txtid;
 
     @FXML
     private TextField txtname;
-
-    @FXML
-    private TextField txtname1;
 
     @FXML
     private TextField txtpost;
@@ -71,10 +74,7 @@ public class SupplierPageController implements Initializable {
     private TextField txtprovince;
 
     @FXML
-    private TextField txtsalary;
-
-    @FXML
-    private TextField txttitle;
+    private TextField txtphon;
 
     Stage stage = new Stage();
 
@@ -137,16 +137,16 @@ public class SupplierPageController implements Initializable {
     void addaction(ActionEvent event) {
         String id = txtid.getText();
         String name = txtname.getText();
-        String comname = txtname1.getText();
+        String comname = txtcomname.getText();
         String address = txtaddress.getText();
         String city = txtcity.getText();
         String province = txtprovince.getText();
         String post = txtpost.getText();
-        String phno = txtsalary.getText();
-        String email = txttitle.getText();
+        String phno = txtphon.getText();
+        String email = txtemail.getText();
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Togakademanagement", "root", "1234");
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO Supplier VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pstm.setString(1, id);
             pstm.setString(2, name);
@@ -169,7 +169,7 @@ public class SupplierPageController implements Initializable {
     @FXML
     void deleteaction(ActionEvent event) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Togakademanagement", "root", "1234");
             PreparedStatement pstm = connection.prepareStatement("DELETE FROM Supplier WHERE SupplierID = ?");
             pstm.setString(1, txtid.getText());
             pstm.executeUpdate();
@@ -184,17 +184,17 @@ public class SupplierPageController implements Initializable {
     @FXML
     void updateaction(ActionEvent event) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Togakademanagement", "root", "1234");
             PreparedStatement pstm = connection.prepareStatement("UPDATE Supplier SET SupplierName = ?, CompanyName = ?, Address = ?, City = ?, Province = ?, PostalCode = ?, PhoneNumber = ?, Email = ? WHERE SupplierID = ?");
-            pstm.setString(1, txtname.getText());
-            pstm.setString(2, txtname1.getText());
-            pstm.setString(3, txtaddress.getText());
-            pstm.setString(4, txtcity.getText());
-            pstm.setString(5, txtprovince.getText());
-            pstm.setString(6, txtpost.getText());
-            pstm.setString(7, txtsalary.getText());
-            pstm.setString(8, txttitle.getText());
-            pstm.setString(9, txtid.getText());
+            pstm.setString(1, txtid.getText());
+            pstm.setString(2, txtname.getText());
+            pstm.setString(3, txtcomname.getText());
+            pstm.setString(4, txtaddress.getText());
+            pstm.setString(5, txtcity.getText());
+            pstm.setString(6, txtprovince.getText());
+            pstm.setString(7, txtpost.getText());
+            pstm.setString(8, txtphon.getText());
+            pstm.setString(9, txtemail.getText());
             pstm.executeUpdate();
             loadSupplier();
         } catch (SQLException e) {
@@ -221,13 +221,13 @@ public class SupplierPageController implements Initializable {
             if (newValue != null) {
                 txtid.setText(newValue.getSupid());
                 txtname.setText(newValue.getSupname());
-                txtname1.setText(newValue.getComname());
+                txtcomname.setText(newValue.getComname());
                 txtaddress.setText(newValue.getAddress());
                 txtcity.setText(newValue.getCity());
                 txtprovince.setText(newValue.getProvince());
                 txtpost.setText(newValue.getPostcode());
-                txtsalary.setText(newValue.getPhno());
-                txttitle.setText(newValue.getEmail());
+                txtphon.setText(newValue.getPhno());
+                txtemail.setText(newValue.getEmail());
             }
         });
 
@@ -237,7 +237,7 @@ public class SupplierPageController implements Initializable {
         suppliyDTOS.clear();
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Togakademanagement", "root", "1234");
             PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Supplier");
             ResultSet resultSet = pstm.executeQuery();
 
