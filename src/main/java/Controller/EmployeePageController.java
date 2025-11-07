@@ -236,7 +236,7 @@ public class EmployeePageController implements Initializable {
 
         emptable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                txtid.setText(newValue.getId());
+                txtid.setText(newValue.getId())                                                          ;
                 txtname.setText(newValue.getName());
                 txtnic.setText(newValue.getNic());
                 txtdob.setText(newValue.getDob());
