@@ -89,9 +89,6 @@
         <Pane layoutX="23.0" layoutY="50.0" prefHeight="538.0" prefWidth="139.0" style="-fx-background-color: #27F554; -fx-background-radius: 20;">
             <children>
                 <Button layoutX="11.0" layoutY="34.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #0C1C09; -fx-background-radius: 40;" text="🏠 Dashboard" textFill="WHITE">
-                    <cursor>
-                        <Cursor fx:constant="CROSSHAIR" />
-                    </cursor>
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
