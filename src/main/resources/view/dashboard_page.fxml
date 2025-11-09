@@ -30,7 +30,19 @@
                 </Label>
             </children>
         </Pane>
-        <Pane layoutX="191.0" layoutY="392.0" prefHeight="189.0" prefWidth="668.0" style="-fx-background-color: #1F5414; -fx-background-radius: 20;" />
+        <Pane layoutX="191.0" layoutY="392.0" prefHeight="189.0" prefWidth="668.0" style="-fx-background-color: #1F5414; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="143.0" fitWidth="319.0" layoutX="24.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Screenshot%202025-11-07%20112902.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="143.0" fitWidth="251.0" layoutX="364.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Screenshot%202025-11-07%20113223.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
         <Pane layoutX="191.0" layoutY="253.0" prefHeight="125.0" prefWidth="109.0" style="-fx-background-color: #BEFAC6; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 4);">
             <children>
                 <ImageView fitHeight="143.0" fitWidth="146.0" layoutX="-17.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
