@@ -98,7 +98,7 @@
             <TextField fx:id="txtdob" layoutX="262.0" layoutY="362.0" prefHeight="25.0" prefWidth="162.0" promptText="Date Of Birth" style="-fx-background-color: #BBFCCA; -fx-background-radius: 5;" />
             </children>
         </Pane>
-        <Button layoutX="1235.0" layoutY="57.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #EF9A1A; -fx-background-radius: 100; -fx-font-size: 19;" text="🚹">
+        <Button layoutX="1396.0" layoutY="57.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #EF9A1A; -fx-background-radius: 100; -fx-font-size: 19;" text="🚹">
             <cursor>
                 <Cursor fx:constant="CROSSHAIR" />
             </cursor>
