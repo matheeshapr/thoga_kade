@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Customer;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +20,8 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class CustomerPageController implements Initializable {
+
+    CustomerController customercontroller = new CustomerController();
 
     ObservableList<CustomerDTO> customerinfoDTOS = FXCollections.observableArrayList();
 
@@ -140,26 +142,9 @@ public class CustomerPageController implements Initializable {
         String province = txtprovince.getText();
         String postcode = txtpost.getText();
 
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Customer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        customercontroller.addCustomerDetails(id, title, name, dob, salary, address, city, province, postcode);
 
-            preparedStatement.setString(1, id);
-            preparedStatement.setString(2, title);
-            preparedStatement.setString(3, name);
-            preparedStatement.setString(4, dob);
-            preparedStatement.setDouble(5, salary);
-            preparedStatement.setString(6, address);
-            preparedStatement.setString(7, city);
-            preparedStatement.setString(8, province);
-            preparedStatement.setString(9, postcode);
-
-            preparedStatement.execute();
-            loadCustomer();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        loadCustomer();
     }
 
     public void updateaction(ActionEvent actionEvent) {
