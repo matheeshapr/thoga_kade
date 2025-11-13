@@ -148,38 +148,28 @@ public class CustomerPageController implements Initializable {
     }
 
     public void updateaction(ActionEvent actionEvent) {
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
-            PreparedStatement pstm = connection.prepareStatement("UPDATE Customer SET Title = ?, Name = ?, DateOfBirth = ?, Salary = ?, Address = ?, City = ?, Province = ?, PostalCode = ? WHERE CustomerID = ?");
-            pstm.setString(1, txttitle.getText());
-            pstm.setString(2, txtname.getText());
-            pstm.setString(3, txtdate.getValue().toString());
-            pstm.setDouble(4, Double.parseDouble(txtsalary.getText()));
-            pstm.setString(5, txtaddress.getText());
-            pstm.setString(6, txtcity.getText());
-            pstm.setString(7, txtprovince.getText());
-            pstm.setString(8, txtpost.getText());
-            pstm.setString(9, txtid.getText());
-            pstm.executeUpdate();
-            loadCustomer();
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        String id = txtid.getText();
+        String title = txttitle.getText();
+        String name = txtname.getText();
+        String dob = txtdate.getValue().toString();
+        double salary = Double.parseDouble(txtsalary.getText());
+        String address = txtaddress.getText();
+        String city = txtcity.getText();
+        String province = txtprovince.getText();
+        String postcode = txtpost.getText();
 
+        customercontroller.updateCustomerDetails(id, title, name, dob, salary, address, city, province, postcode);
+
+        loadCustomer();
 
     }
 
     public void deleteaction(ActionEvent actionEvent) {
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
-            PreparedStatement pstm = connection.prepareStatement("DELETE FROM Customer WHERE CustomerID = ?");
-            pstm.setString(1, txtid.getText());
-            pstm.executeUpdate();
-            loadCustomer();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
+        customercontroller.deleteCustomerDetails(txtid.getText());
+        loadCustomer();
+
 
     }
 
@@ -218,27 +208,7 @@ public class CustomerPageController implements Initializable {
     private void loadCustomer() {
         customerinfoDTOS.clear();
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Togakademanagement", "root", "1234");
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Customer");
-             ResultSet resultSet = preparedStatement.executeQuery()) {
-
-            while (resultSet.next()) {
-                CustomerDTO customer = new CustomerDTO(
-                        resultSet.getString("CustomerID"),
-                        resultSet.getString("Title"),
-                        resultSet.getString("Name"),
-                        resultSet.getString("DateOfBirth"),
-                        resultSet.getString("Salary"),
-                        resultSet.getString("Address"),
-                        resultSet.getString("City"),
-                        resultSet.getString("Province"),
-                        resultSet.getString("PostalCode")
-                );
-                customerinfoDTOS.add(customer);
-            }
-
-        } catch (SQLException e) {
-        }
+        customerinfoDTOS.addAll(customercontroller.getAllCustomerDetails());
 
     }
 }
