@@ -5,9 +5,10 @@ import model.dto.CustomerDTO;
 
 import java.sql.*;
 
-public class CustomerController {
+public class CustomerController implements CustomerService{
 
-    public void addCustomerDetails(String id, String title, String name, String dob, double salary,String address, String city, String province, String postcode){
+    @Override
+    public void addCustomerDetails(String id, String title, String name, String dob, double salary, String address, String city, String province, String postcode){
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Customer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -29,6 +30,7 @@ public class CustomerController {
         }
     }
 
+    @Override
     public void updateCustomerDetails(String id, String title, String name, String dob, double salary,String address, String city, String province, String postcode){
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
@@ -44,20 +46,23 @@ public class CustomerController {
             preparedStatement.setString(8, province);
             preparedStatement.setString(9, postcode);
 
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
+    @Override
     public void deleteCustomerDetails(String id){
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Customer WHERE CustomerID = ?");
             preparedStatement.setString(1, id);
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

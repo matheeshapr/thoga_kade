@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class CustomerPageController implements Initializable {
 
-    CustomerController customercontroller = new CustomerController();
+    CustomerService customercontroller = new CustomerController();
 
     ObservableList<CustomerDTO> customerinfoDTOS = FXCollections.observableArrayList();
 
