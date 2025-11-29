@@ -131,6 +131,7 @@ public class ItemPageController implements Initializable {
             pstm.setString(2, des);
             pstm.setString(3, cate);
             pstm.setString(4, qty);
+            pstm.setDouble(5, price);
 
             pstm.execute();
             loadItem();
