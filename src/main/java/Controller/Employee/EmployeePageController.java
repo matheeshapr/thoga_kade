@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 
 public class EmployeePageController implements Initializable {
 
+    EmployeeController employeeController = new EmployeeController();
+
     ObservableList<EmployeeDTO> empDTOS = FXCollections.observableArrayList();
 
 
@@ -195,26 +197,6 @@ public class EmployeePageController implements Initializable {
 
     @FXML
     void updateaction(ActionEvent event) {
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/togakademanagement", "root", "1234");
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Employee SET id = ?, Name = ?, nic = ?, dob = ?, position = ?, salary = ?, conno = ?, join = ?, status = ? WHERE EmployeeID = ?");
-                    preparedStatement.setString(1,txtid.getText());
-                    preparedStatement.setString(2,txtname.getText());
-                    preparedStatement.setString(3,txtnic.getText());
-                    preparedStatement.setString(4,txtdob.getText());
-                    preparedStatement.setString(5,txtpostion.getText());
-                    preparedStatement.setString(6,txtsalary.getText());
-                    preparedStatement.setString(7,txtconno.getText());
-                    preparedStatement.setString(8,txtjoind.getText());
-                    preparedStatement.setString(9,txtstatus.getText());
-                    preparedStatement.execute();
-                    loadEmployee();
-
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
 
     }
 
