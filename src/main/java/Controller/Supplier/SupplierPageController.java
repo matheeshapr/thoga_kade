@@ -195,7 +195,7 @@ public class SupplierPageController implements Initializable {
             pstm.setString(7, txtpost.getText());
             pstm.setString(8, txtphon.getText());
             pstm.setString(9, txtemail.getText());
-            pstm.executeUpdate();
+            pstm.execute();
             loadSupplier();
         } catch (SQLException e) {
             throw new RuntimeException(e);
