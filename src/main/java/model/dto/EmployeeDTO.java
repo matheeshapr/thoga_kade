@@ -1,8 +1,10 @@
 package model.dto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class EmployeeDTO {
     private String id;
     private String name;
